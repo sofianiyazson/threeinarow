@@ -30,4 +30,63 @@ public class Board {
     System.out.println(" " + cells[6] + " | " + cells[7] + " | " + cells[8]);
     System.out.println();
 }
+public boolean isWinner() {
+    if (
+        cells[0].equals(cells[1]) && 
+        cells[1].equals(cells[2]) &&      // Row 0 1 2
+        (cells[0].equals("X") || cells[0].equals("O")) // the same player
+    ) { 
+    return true;
+    }
+    if (
+        cells[3].equals(cells[4]) && 
+        cells[4].equals(cells[5]) &&      // Row 3 4 5
+        (cells[3].equals("X") || cells[3].equals("O")) // the same player
+    ) { // Row 3 4 5
+    return true;
+    }
+    if (
+        cells[6].equals(cells[7]) && 
+        cells[7].equals(cells[8]) &&      // Row 6 7 8
+        (cells[6].equals("X") || cells[6].equals("O")) // the same player
+    ) { // Row 6 7 8
+    return true;
+    }
+    if (
+        cells[0].equals(cells[3]) && 
+        cells[3].equals(cells[6]) &&      // Column 0 3 6
+        (cells[0].equals("X") || cells[0].equals("O")) // the same player
+    ) { 
+    return true;
+    }
+    if (
+        cells[1].equals(cells[4]) && 
+        cells[4].equals(cells[7]) &&      // Column 1 4 7
+        (cells[1].equals("X") || cells[1].equals("O")) // the same player
+    ) { 
+    return true;
+    }
+    if (
+        cells[2].equals(cells[5]) && 
+        cells[5].equals(cells[8]) &&      // Column 2 5 8
+        (cells[2].equals("X") || cells[2].equals("O")) // the same player
+    ) { // Column 2 5 8
+    return true;
+    }
+    if (
+        cells[0].equals(cells[4]) && 
+        cells[4].equals(cells[8]) &&      // Diagonal 0 4 8
+        (cells[0].equals("X") || cells[0].equals("O")) // the same player
+    ) { // Diagonal 0 4 8
+    return true;
+    }
+    if (
+        cells[2].equals(cells[4]) && 
+        cells[4].equals(cells[6])  &&      // Diagonal 2 4 6
+        (cells[2].equals("X") || cells[2].equals("O"))
+    ) { 
+    return true;
+    }
+return false;
+}
 }
