@@ -46,7 +46,9 @@ public class Game {
                 if (board.checkWin(currentPlayer)) {
                     board.printBoard();
                     System.out.println("Player " + currentPlayer + " wins!");
-                    System.out.println("Starting a new game...\n");
+                    System.out.println("Winning line: " + board.getWinningLine());
+                    System.out.println("Press Enter to start a new game...");
+                    scanner.nextLine(); // Wait for user to press Enter
                     break; // new match starts
                 }
 

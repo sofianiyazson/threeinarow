@@ -8,6 +8,12 @@ public class Board {
         resetBoard();           // fill board with numbers
     }
 
+    private String winningLine; // to store the winning line description(how did the player win)
+
+    public String getWinningLine() { // Return the winning line description (getter), Game can use but not change it
+        return winningLine;
+    }
+
     // fills the board with 1–9 again (used when starting a new game)
     public void resetBoard() { 
         cells[0] = "a";
@@ -116,27 +122,71 @@ public class Board {
     public boolean checkWin(String player) { // Check all winning combinations
 
         // Rows
-        if (cells[0].equals(player) && cells[1].equals(player) && cells[2].equals(player)) 
+        if (cells[0].equals(player) && 
+            cells[1].equals(player) && 
+            cells[2].equals(player)) {
+
+            winningLine = "row (a - b - c)";    
         return true;
-        if (cells[3].equals(player) && cells[4].equals(player) && cells[5].equals(player)) 
+        }
+        
+        if (cells[3].equals(player) &&
+            cells[4].equals(player) &&
+            cells[5].equals(player)) {
+
+            winningLine = "row (d - e - f)";
         return true;
-        if (cells[6].equals(player) && cells[7].equals(player) && cells[8].equals(player)) 
+        }
+        
+        if (cells[6].equals(player) && 
+            cells[7].equals(player) && 
+            cells[8].equals(player)) {
+
+            winningLine = "row (g - h - i)";
         return true;
+        }
 
         // Columns
-        if (cells[0].equals(player) && cells[3].equals(player) && cells[6].equals(player)) 
+        if (cells[0].equals(player) && 
+            cells[3].equals(player) && 
+            cells[6].equals(player)) {
+
+            winningLine = "column (a - d - g)";
         return true;
-        if (cells[1].equals(player) && cells[4].equals(player) && cells[7].equals(player)) 
+        }
+        
+        if (cells[1].equals(player) && 
+            cells[4].equals(player) && 
+            cells[7].equals(player)) {
+
+            winningLine = "column (b - e - h)";
         return true;
-        if (cells[2].equals(player) && cells[5].equals(player) && cells[8].equals(player)) 
+        }
+
+        if (cells[2].equals(player) && 
+            cells[5].equals(player) && 
+            cells[8].equals(player)) {
+
+            winningLine = "column (c - f - i)";
         return true;
+        }
 
         // Diagonals
-        if (cells[0].equals(player) && cells[4].equals(player) && cells[8].equals(player)) 
+        if (cells[0].equals(player) && 
+            cells[4].equals(player) && 
+            cells[8].equals(player)) {
+
+            winningLine = "diagonal (a - e - i)";
         return true;
-        if (cells[2].equals(player) && cells[4].equals(player) && cells[6].equals(player)) 
+        }
+
+        if (cells[2].equals(player) && 
+            cells[4].equals(player) && 
+            cells[6].equals(player)) {
+
+            winningLine = "diagonal (c - e - g)";
         return true;
-            
+        } 
     return false; // No win found
     }
 
